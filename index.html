@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Solidity Utils</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="description" content="Convert String to Bytes32 for Solidity">
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Convert String to Bytes32</h1>
+    <h3>String: </h3>
+    <input id="string"  type="text" style="width: 100%;" onchange="convertToBytes32()" oninput="convertToBytes32()">
+    <br>
+    <h3>Bytes32: </h3>
+    <input id="bytes32" type="text" style="width: 100%;" onchange="converToString()" oninput="converToString()">
+</body>
+</html>
+<script>
+
+    function convertToBytes32() {    
+        const stringElement = document.getElementById("string")
+        const bytes32Element = document.getElementById("bytes32")
+        bytes32Element.value = stringElement.value ? ethers.utils.formatBytes32String(stringElement.value) : "";
+    }
+
+    function converToString() {
+        const stringElement = document.getElementById("string")
+        const bytes32Element = document.getElementById("bytes32")
+        stringElement.value = bytes32Element.value ? ethers.utils.parseBytes32String(bytes32Element.value) : "";
+    }
+
+
+</script>
